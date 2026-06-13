@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ميلاد سعيد لأغلى إنسانة 🤍</title>
+
+    <!-- خطوط جوجل المتناغمة (كانفا ستايل) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Baloo+Bhaijaan+2:wght@500;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= ألوان الهوية البصرية اللطيفة والفاخرة ================= */
+        :root {
+            --bg-color: #FFF0F2;
+            --pink-accent: #E26D85;
+            --pink-bright: #F57893;
+            --gold-accent: #f7d283;
+            --text-dark: #4A3A3D; /* بني مارون דافئ ومقروء */
+            
+            --glass-bg: rgba(255, 240, 242, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.9);
+            --glass-shadow: 0 10px 25px rgba(226, 109, 133, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; user-select: none; }
+
+        body {
+            font-family: 'Baloo Bhaijaan 2', 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(#FAD5DA 2.5px, transparent 2.5px);
+            background-size: 35px 35px;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* حاوية الفصول الرئيسية */
+        .chapter {
+            position: absolute; top: 0; left: 0; width: 100%; min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; visibility: hidden; padding: 30px 15px; z-index: 10;
+            transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0.96) translateY(20px);
+        }
+        .chapter.active { opacity: 1; visibility: visible; z-index: 20; transform: scale(1) translateY(0); }
+
+        /* الشريحة الزجاجية الأنيقة */
+        .glass-panel {
+            background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--glass-border); border-radius: 35px;
+            box-shadow: var(--glass-shadow); padding: 40px 25px;
+            text-align: center; width: 100%; max-width: 600px;
+        }
+
+        /* ================= الفصل 1: البصمة ================= */
+        .fingerprint-icon {
+            font-size: 6.5rem; color: var(--pink-bright);
+            filter: drop-shadow(0 0 20px var(--pink-bright));
+            animation: pulseGlow 1.5s infinite alternate; cursor: pointer; transition: 0.3s;
+            margin: 40px 0 20px;
+        }
+        .fingerprint-icon.scanning { color: var(--gold-accent); filter: drop-shadow(0 0 35px var(--gold-accent)); transform: scale(1.05); animation: none; }
+        @keyframes pulseGlow { to { transform: scale(1.08); filter: drop-shadow(0 0 10px var(--pink-bright)); } }
+        .loading-text { font-family: 'Baloo Bhaijaan 2'; font-size: 1.5rem; color: var(--pink-bright); opacity: 0; font-weight: bold; }
+
+        /* ================= الفصل 2: الكيكة وشاشة كانفا الافتتاحية ================= */
+        /* تصليح التخطيط بحيث يأخذ كل شيء حقه دون تداخل */
+        .canva-hero { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 650px; position: relative; margin: auto; padding: 20px 10px; }
+        
+        .top-decor { width: 100%; display: flex; justify-content: space-between; position: absolute; top: -10px; z-index: -1; }
+        .bunting-svg { width: 150px; opacity: 0.9; }
+
+        .cake-image-wrap { margin-top: 50px; animation: floatObj 3s ease-in-out infinite alternate; position: relative; z-index: 5; }
+        @keyframes floatObj { to { transform: translateY(-15px); } }
+        .cake-img { width: 100%; max-width: 250px; filter: drop-shadow(0px 15px 15px rgba(226, 109, 133, 0.4)); }
+
+        .hbd-title {
+            font-family: 'Fredoka One', cursive; font-size: clamp(3rem, 10vw, 4.5rem);
+            line-height: 1.1; color: var(--pink-accent); letter-spacing: 2px;
+            text-shadow: 2px 2px 0px #fff, 4px 4px 15px rgba(226, 109, 133, 0.4);
+            margin: 15px 0; z-index: 5; text-align: center;
+        }
+
+        .hbd-wishes { font-size: 1.25rem; font-weight: bold; color: var(--text-dark); margin: 15px auto; line-height: 1.6; text-align: center; width: 90%; }
+        .hbd-msg { font-size: 1.35rem; font-weight: 800; color: #1a1a1a; margin-bottom: 25px; line-height: 1.6; text-align: center; }
+
+        /* النجوم العائمة */
+        .floating-star { position: absolute; color: var(--pink-bright); font-size: 1.5rem; opacity: 0.7; animation: spinStar 4s infinite linear; }
+        @keyframes spinStar { to { transform: rotate(360deg); } }
+
+        /* الزر المطور والموحد */
+        .action-btn {
+            background: linear-gradient(135deg, var(--pink-bright), var(--pink-accent));
+            color: #fff; border: 2px solid #fff; border-radius: 50px;
+            padding: 14px 40px; font-family: 'Baloo Bhaijaan 2'; font-size: 1.4rem; font-weight: bold;
+            box-shadow: 0 10px 20px rgba(226, 109, 133, 0.4); cursor: pointer;
+            transition: all 0.2s ease; display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px;
+        }
+        .action-btn:active { transform: scale(0.94); box-shadow: 0 5px 10px rgba(226, 109, 133, 0.3); }
+
+        /* ================= الفصل 3: الكيكة الفاعلية (أطفاء الشموع) ================= */
+        .interactive-cake { position: relative; width: 280px; height: 260px; margin: 40px auto 70px; }
+        .cake-plate { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 310px; height: 45px; background: #FFF; border: 3px solid var(--pink-accent); border-radius: 50%; box-shadow: 0 15px 25px rgba(226, 109, 133, 0.2); }
+        .real-tier { position: absolute; left: 50%; transform: translateX(-50%); background: var(--pink-bright); border-radius: 20px; box-shadow: inset 0 -15px 15px rgba(200, 50, 80, 0.3);}
+        .rt-base { bottom: 10px; width: 250px; height: 110px; }
+        .rt-mid { bottom: 115px; width: 190px; height: 90px; }
+        .icing-top { position: absolute; top: -5px; width: 100%; height: 30px; background: #fff; border-radius: 15px; }
+        .icing-top::before, .icing-top::after { content: ''; position: absolute; background: #fff; border-radius: 50%; }
+        .icing-top::before { width: 35px; height: 50px; left: 20px; top: 5px; }
+        .icing-top::after { width: 30px; height: 60px; right: 25px; top: 0px; }
+        
+        .candles-row { position: absolute; bottom: 215px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 10; }
+        .candle-stick { width: 14px; height: 55px; border-radius: 8px; background: repeating-linear-gradient(45deg, #fff, #fff 4px, var(--pink-accent) 4px, var(--pink-accent) 8px); box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
+        .candle-flame { position: absolute; top: -30px; left: -3px; width: 20px; height: 35px; background: #FFD700; border-radius: 50% 50% 20% 20%; box-shadow: 0 0 25px #FFD700, inset 0 0 10px #FF8C00; animation: flameVibrate 0.1s infinite alternate; transition: 0.4s; }
+        .candle-unit { position: relative; cursor: pointer; transition: 0.3s; }
+        .candle-unit.off .candle-flame { opacity: 0; transform: scale(0) translateY(-10px); }
+        .candle-unit.off .candle-stick { filter: grayscale(70%); opacity: 0.8;}
+        @keyframes flameVibrate { to { transform: scale(1.05) rotate(4deg); } }
+
+        /* ================= الفصل 4: الإبتكار الجديد كلياً (إشعارات الذكريات) ================= */
+        /* استبدال الكروت المملة بتصميم واجهة شات / إشعارات يلامس جيلنا الموبايل */
+        .notification-app { width: 100%; display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+        .notif-bubble { 
+            background: rgba(255, 255, 255, 0.85);
+            border: 2px solid var(--pink-bright);
+            border-radius: 20px; padding: 15px 20px; text-align: right;
+            box-shadow: 0 5px 15px rgba(226, 109, 133, 0.1); cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative; overflow: hidden; height: 65px;
+        }
+        .notif-bubble:hover { transform: translateY(-3px); border-color: var(--pink-accent); box-shadow: 0 10px 20px rgba(226, 109, 133, 0.2);}
+        .notif-header { display: flex; align-items: center; gap: 12px; font-weight: bold; font-size: 1.3rem; color: var(--pink-accent); }
+        .notif-icon { background: var(--bg-color); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 50%; color: var(--pink-accent);}
+        .notif-msg { margin-top: 15px; font-size: 1.15rem; color: var(--text-dark); line-height: 1.6; font-weight: 600; opacity: 0; transition: opacity 0.4s ease 0.1s;}
+        
+        .notif-bubble.opened { height: auto; min-height: 130px; background: #fff;}
+        .notif-bubble.opened .notif-msg { opacity: 1; }
+        .notif-bubble.opened .new-badge { display: none; }
+        
+        .new-badge { position: absolute; left: 15px; top: 20px; background: #ff4757; color: white; font-size: 0.8rem; padding: 2px 8px; border-radius: 20px; font-weight: bold; animation: pulseBadge 1.5s infinite; }
+        @keyframes pulseBadge { 0% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        /* ================= الفصل 5: جهاز كشف الغلاوة ================= */
+        .scanner-device { background: rgba(255, 255, 255, 0.7); padding: 30px; border-radius: 40px; border: 4px dashed var(--pink-bright); width: 100%; margin: 30px 0; }
+        .huge-heart-btn { 
+            background: linear-gradient(135deg, #ff4757, var(--pink-accent)); 
+            width: 140px; height: 140px; border-radius: 50%; border: 6px solid #fff; 
+            box-shadow: 0 15px 35px rgba(226, 109, 133, 0.5); margin: 0 auto; 
+            color: #fff; font-size: 4.5rem; display: flex; align-items: center; justify-content: center; 
+            cursor: pointer; transition: 0.2s; animation: pulseHuge 2s infinite; 
+        }
+        .huge-heart-btn:active { transform: scale(0.9); }
+        @keyframes pulseHuge { 50% { transform: scale(1.05); box-shadow: 0 15px 45px rgba(226, 109, 133, 0.7); } }
+        .meter-bar { width: 100%; height: 30px; background: #ffe4e8; border-radius: 15px; overflow: hidden; margin-top: 30px; border: 2px solid #fff; position: relative; }
+        .meter-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--gold-accent), var(--pink-bright), #ff4757); transition: width 0.3s; }
+        .machine-text { margin-top: 25px; font-weight: 800; color: var(--text-dark); font-size: 1.4rem; min-height: 70px;}
+
+        /* ================= الفصل 6: الرسالة הدافئة الختامية ================= */
+        .love-letter-container { 
+            background: #fff; border-radius: 30px; padding: 40px 30px; 
+            text-align: right; line-height: 2.1; font-size: 1.25rem; font-weight: 600; 
+            color: var(--text-dark); position: relative;
+            border-right: 8px solid var(--pink-bright); box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            min-height: 400px;
+        }
+        .type-cursor { display: inline-block; width: 4px; height: 1.1em; background: var(--pink-accent); animation: cursorBlink 0.7s infinite; vertical-align: middle; }
+        @keyframes cursorBlink { 50% { opacity: 0; } }
+
+        /* المؤثرات الخاصة والمرحة بالأنميشن */
+        .hidden-el { display: none; opacity: 0; }
+        .show-el { display: inline-flex !important; animation: showUp 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        @keyframes showUp { from { transform: scale(0.8) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+
+        .confetti-pop { position: fixed; z-index: 9999; pointer-events: none; }
+        .sparkle-pop { position: absolute; z-index: 1000; border-radius: 50%; pointer-events: none; }
+        @keyframes fallAndSpin { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 1;} 100% { transform: translateY(110vh) rotate(540deg); opacity: 0;} }
+        @keyframes explodeOut { 100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0;} }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" src="LOVE.mp3" loop></audio>
+
+    <!-- ================= الفصل 1 ================= -->
+    <div id="chap1" class="chapter active">
+        <div class="glass-panel">
+            <h1 style="font-family: 'Baloo Bhaijaan 2'; color: var(--text-dark); font-size: 2.6rem;">اهلييين بارنوبتي نوووورتي 🤍</h1>
+            <p style="font-weight: bold; font-size: 1.3rem; color: var(--pink-accent); margin-top: 10px;">هاتي بصمتك يا قلوبتي، خلينا نفتح هديتك</p>
+            
+            <i class="fas fa-fingerprint fingerprint-icon" id="btn-fp"></i>
+            <div class="loading-text" id="text-fp">اصبري شوي، جاري مطابقة الحلاوه... <span id="val-fp">0</span>%</div>
+        </div>
+    </div>
+
+    <!-- ================= الفصل 2 ================= -->
+    <div id="chap2" class="chapter">
+        <div class="canva-hero">
+            
+            <div class="top-decor">
+                <svg class="bunting-svg" style="transform: scaleX(-1);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0 L25 35 L40 0 L65 45 L75 0 L100 40 L100 0 Z" fill="#F57893"/>
+                    <path d="M0 0 M20 0 L35 25 L45 0 M60 0 L70 30 L80 0" fill="#E26D85" opacity="0.8"/>
+                </svg>
+                <svg class="bunting-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0 L25 35 L40 0 L65 45 L75 0 L100 40 L100 0 Z" fill="#f7d283"/>
+                </svg>
+            </div>
+
+            <!-- النجوم الزينة -->
+            <i class="fas fa-star floating-star" style="top: 25%; left: 10%; color: var(--gold-accent);"></i>
+            <i class="fas fa-star floating-star" style="bottom: 15%; right: 15%;"></i>
+            <i class="fas fa-star floating-star" style="top: 35%; right: 10%; font-size: 1rem;"></i>
+
+            <div class="cake-image-wrap">
+                <!-- استخدام صورتك المرفقة بدون أن تتداخل بفضل التصميم المتناسق (Flex-Column) -->
+                <img src="https://ibb.co/cc4XYj19/full" alt="Birthday Cake" class="cake-img" onerror="this.src='https://i.ibb.co/cc4XYj19/pink-birthday-cake.png'">
+            </div>
+
+            <div class="hbd-title">HAPPY<br>BIRTHDAY</div>
+
+            <div class="hbd-wishes">
+                كل سنة وانتي طيبة وجميلة وعسل وارنوبتي يا عمري،<br>
+                يارب يكون هاذا اليوم بدايه لحياه افضل ليكي واسعد يارب 🤍
+            </div>
+
+            <div class="hbd-msg">
+                يا اجمل بنوته في حياتي!<br>
+                🥰 اتمنى تحبيني للابد و اكون ليوثتك لوحدك للابد اوكي يا عمري ..<br>
+                طيب ابتسمي الحين واستعدي عشان الهديه الصغنونه حقتي؟ 😉 
+            </div>
+
+            <button class="action-btn hidden-el" id="btn-c2" onclick="goNext(3)">يلا نكمل السهرة <i class="fas fa-arrow-left"></i></button>
+        </div>
+    </div>
+
+    <!-- ================= الفصل 3 ================= -->
+    <div id="chap3" class="chapter" style="justify-content: flex-start; padding-top: 5vh; min-height: 100vh; overflow-y: auto;">
+        <div style="width: 100%; max-width: 650px; margin: auto;">
+            
+            <div style="text-align: center;">
+                <h2 style="font-family:'Baloo Bhaijaan 2'; font-size: 2.8rem; color: var(--pink-accent); margin-bottom: 5px;">شموع الفرح 🎂</h2>
+                <p style="font-size: 1.3rem; font-weight: 800;">اطفي الشموع وكل شمعه فيها حاجة حلوه اقرأيها بعناية!</p>
+                <div id="msg-cake" style="font-size: 1.4rem; color: #4A3A3D; font-weight: bold; margin: 15px 0; min-height: 80px; text-shadow: 1px 1px 2px #fff;"></div>
+            </div>
+
+            <div class="interactive-cake">
+                <div class="cake-plate"></div>
+                <div class="real-tier rt-base">
+                    <div class="icing-top"></div>
+                    <i class="fas fa-heart" style="position: absolute; bottom: 20px; left: 45px; color: rgba(255,255,255,0.7); font-size: 1.6rem;"></i>
+                    <i class="fas fa-heart" style="position: absolute; bottom: 35px; right: 55px; color: rgba(255,255,255,0.7); font-size: 1.6rem;"></i>
+                </div>
+                <div class="real-tier rt-mid">
+                    <div class="icing-top"></div>
+                </div>
+                <i class="fas fa-ribbon" style="position: absolute; bottom: 85px; left: 50%; transform: translateX(-50%); font-size: 4rem; color: #fff; z-index: 15;"></i>
+                
+                <div class="candles-row" id="wrap-candles">
+                    <!-- توليد بالـ JS -->
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button class="action-btn hidden-el" id="btn-c3" onclick="goNext(4)">بحبك مووت! كملي؟ <i class="fas fa-heart"></i></button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- ================= الفصل 4: الإشعارات الحديثة ================= -->
+    <div id="chap4" class="chapter">
+        <div class="glass-panel" style="max-width: 600px;">
+            <h2 style="font-family:'Baloo Bhaijaan 2'; font-size: 2.5rem; color: var(--pink-accent);">رسايل من اعماق حبي ليكي  💬💌</h2>
+            <p style="font-size: 1.3rem; font-weight: bold;">اضغطي على كل رياله وشوفي يلا انا متحمس اكثر منك !</p>
+
+            <!-- فكرة جديدة وبطريقة مبتكرة لشابة 18 سنة -->
+            <div class="notification-app">
+                <div class="notif-bubble" onclick="openNotif(this)">
+                    <div class="new-badge">بحبك</div>
+                    <div class="notif-header"><div class="notif-icon"><i class="fas fa-heart"></i></div> رساله لاحن بنت لي 🌸</div>
+                    <div class="notif-msg">وربي إن حنيتك واهتمامك لي مش بسيط، أنا شاكر لكل لحظة بتحتويني فيها.. شكراً من قلبي بحبك خالتو.</div>
+                </div>
+                
+                <div class="notif-bubble" onclick="openNotif(this)">
+                    <div class="new-badge">بموت فيك</div>
+                    <div class="notif-header"><div class="notif-icon"><i class="fas fa-smile-wink"></i></div> رساله لاحلى حد بشوفه يضحك 👑</div>
+                    <div class="notif-msg">كل ضحكة بتضحكيها أنا برتاح، صح ما بسمعها أحياناً بس يكفي إني أحس إنك فرحتي وارتحتي وهالشئ يكفيني.</div>
+                </div>
+
+                <div class="notif-bubble" onclick="openNotif(this)">
+                    <div class="new-badge">بعشقك</div>
+                    <div class="notif-header"><div class="notif-icon"><i class="fas fa-crown"></i></div> رساله لاحلى بيدلعني ✨</div>
+                    <div class="notif-msg">أحلى دلع وأحلى حد بيعرف يدلعني، أنتِ مكانك في قلبي كبيير ومافي حد بياخذ مكانك أبداً، أنتِ قلبي أصلاً!</div>
+                </div>
+
+                <div class="notif-bubble" onclick="openNotif(this)">
+                    <div class="new-badge">حياتي انتي</div>
+                    <div class="notif-header"><div class="notif-icon"><i class="fas fa-pray"></i></div> دعوه من قلبي ليكي خالتو 🤍</div>
+                    <div class="notif-msg">اللهم إني استودعتك عيناها من الدموع وقلبها من الوجع فأحفظها بعينك التي لا تنام، اللهم أرح قلبها واجعلها من أسعد خلقك!</div>
+                </div>
+            </div>
+
+            <button class="action-btn hidden-el" id="btn-c4" onclick="goNext(5)" style="margin-top: 35px; width: 100%;">حبيتي الرحله صح ؟يلا نكمل  🚀</button>
+        </div>
+    </div>
+
+    <!-- ================= الفصل 5 ================= -->
+    <div id="chap5" class="chapter">
+        <div class="glass-panel" style="padding: 30px;">
+            <h2 style="font-family:'Baloo Bhaijaan 2'; font-size: 2.6rem; color: var(--pink-accent);">رادار فحص الحلاوه  📡</h2>
+            <p style="font-weight: 800; font-size:1.2rem; margin-bottom: 25px;">ماكينة دقيقة تقيس حلاوتك وغلاوتك بضغطة وحدة..</p>
+            
+            <div class="scanner-device">
+                <div class="huge-heart-btn" id="radar-btn"><i class="fas fa-bolt"></i></div>
+                <div class="meter-bar"><div class="meter-fill" id="meter-fill"></div></div>
+                <div class="machine-text" id="machine-text">اضغطي بقوة و استني النتيجة.. 🧐</div>
+            </div>
+
+            <button class="action-btn hidden-el" id="btn-c5" onclick="goNext(6)">استلام التقرير النهائي 💌</button>
+        </div>
+    </div>
+
+    <!-- ================= الفصل 6 ================= -->
+    <div id="chap6" class="chapter" style="justify-content: flex-start; padding-top: 7vh; overflow-y: auto;">
+        <div style="width: 100%; max-width: 850px; margin: auto;">
+            <div class="glass-panel" style="padding: 40px 25px;">
+                <h2 style="font-family:'Baloo Bhaijaan 2'; font-size: 3rem; color: var(--pink-bright); margin-bottom: 10px;"><i class="fas fa-envelope-open-text"></i> رساله النهائيه من ليوثتك 🤍</h2>
+                <div class="love-letter-container">
+                    <span id="final-script"></span><span class="type-cursor" id="t-cursor"></span>
+                </div>
+                <button class="action-btn" onclick="location.reload()" style="background: var(--text-dark); margin-top: 40px; border:none;">
+                    عجبك؟ بنعيد من الصفر لعيونك! <i class="fas fa-redo"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // ================= الأكواد والدوال التفاعلية والمرحة =================
+
+        // قصاصات بهجة رائعة
+        function blastConfetti(qty = 150) {
+            const cls = ['#F57893', '#E26D85', '#f7d283', '#fdf5f2', '#FFFFFF'];
+            for(let i=0; i<qty; i++) {
+                let div = document.createElement('div');
+                div.className = 'confetti-pop';
+                div.style.left = Math.random() * 100 + 'vw';
+                div.style.width = Math.random() * 12 + 6 + 'px';
+                div.style.height = Math.random() * 18 + 8 + 'px';
+                div.style.backgroundColor = cls[Math.floor(Math.random() * cls.length)];
+                div.style.borderRadius = Math.random() > 0.5 ? '50%' : '3px';
+                let dur = Math.random() * 3 + 2;
+                div.style.animation = `fallAndSpin ${dur}s linear forwards`;
+                document.body.appendChild(div);
+                setTimeout(() => div.remove(), dur * 1000);
+            }
+        }
+
+        // شرارات عند ضغط الأشياء
+        function createSparks(x, y) {
+            const clr = ['#f7d283', '#F57893', '#fff'];
+            for(let i=0; i<30; i++) {
+                let s = document.createElement('div');
+                s.className = 'sparkle-pop';
+                s.style.left = x + 'px'; s.style.top = y + 'px';
+                s.style.width = Math.random() * 8 + 4 + 'px'; s.style.height = s.style.width;
+                s.style.backgroundColor = clr[Math.floor(Math.random() * clr.length)];
+                let a = Math.random() * Math.PI * 2; let v = 50 + Math.random() * 90;
+                s.style.setProperty('--dx', Math.cos(a) * v + 'px');
+                s.style.setProperty('--dy', Math.sin(a) * v + 'px');
+                s.style.animation = `explodeOut 0.7s cubic-bezier(0.1, 0.9, 0.2, 1) forwards`;
+                document.body.appendChild(s);
+                setTimeout(() => s.remove(), 700);
+            }
+        }
+
+        function goNext(step) {
+            document.querySelectorAll('.chapter').forEach(el => el.classList.remove('active'));
+            document.getElementById('chap' + step).classList.add('active');
+            window.scrollTo({top:0, behavior:'smooth'});
+
+            if(step === 2) { setTimeout(()=>{ document.getElementById('btn-c2').classList.add('show-el'); }, 3000); }
+            if(step === 6) { setTimeout(typeWriteFinal, 800); }
+        }
+
+        // --- نظام البصمة ---
+        let progT = 0, tmrFP;
+        const bFp = document.getElementById('btn-fp');
+        const vFp = document.getElementById('val-fp');
+        const fpT = document.getElementById('text-fp');
+
+        function startFP(e) {
+            e.preventDefault();
+            document.getElementById('bgMusic').play().catch(()=>{}); // يشتغل الصوت اول ضغطة كطريقة آمنة بالموبايل
+            bFp.classList.add('scanning');
+            fpT.style.opacity = '1';
+            
+            tmrFP = setInterval(()=>{
+                progT += 3;
+                if(progT >= 100) { 
+                    progT = 100; clearInterval(tmrFP);
+                    fpT.innerText = "يماااا الحلواه اكتمل! 🤍";
+                    blastConfetti();
+                    setTimeout(()=>goNext(2), 1500);
+                } else { vFp.innerText = progT; }
+            }, 45);
+        }
+        function endFP() {
+            clearInterval(tmrFP);
+            bFp.classList.remove('scanning');
+            if(progT < 100) { progT=0; vFp.innerText='0'; fpT.style.opacity='0';}
+        }
+
+        bFp.addEventListener('mousedown', startFP); bFp.addEventListener('touchstart', startFP);
+        window.addEventListener('mouseup', endFP); window.addEventListener('touchend', endFP);
+
+        // --- الكيكة والشموع المبرمجة بالعامية الحلوة ---
+        const candMsgs = [
+            "عسى كل لحظات عمرك سعادة وهنا يا بعد كل غالي 🤍",
+            "عسى كل أمورك تساهيل وكل نجاح تبغيه يكون دربك 🌸",
+            "كل الأمنيات الحلوة تطاردك، عساني ما أنحرم من هالقلب العظيم 👑",
+            "صغرتي هالسنة وكل يوم تحلين بزيادة 😉.. سنة العوض الجميل بإذن الله 🎉"
+        ];
+        const row = document.getElementById('wrap-candles');
+        let blewOut = 0;
+        
+        for(let j=0; j<4; j++) {
+            let cx = document.createElement('div');
+            cx.className = 'candle-unit';
+            cx.innerHTML = `<div class="candle-flame"></div><div class="candle-stick"></div>`;
+            cx.addEventListener('click', function(ev) {
+                if(!this.classList.contains('off')){
+                    this.classList.add('off');
+                    let bb = this.getBoundingClientRect();
+                    createSparks(bb.left+10, bb.top);
+                    
+                    document.getElementById('msg-cake').innerText = candMsgs[blewOut];
+                    blewOut++;
+                    
+                    if(blewOut === 4){
+                        setTimeout(()=>{ blastConfetti(100); document.getElementById('btn-c3').classList.add('show-el');}, 600);
+                    }
+                }
+            });
+            row.appendChild(cx);
+        }
+
+        // --- نظام إشعارات الموبايل الجديد المبتكر (بدال الكروت المملة) ---
+        let notifsOpen = 0;
+        function openNotif(n) {
+            if(!n.classList.contains('opened')) {
+                n.classList.add('opened');
+                notifsOpen++;
+                // نعطيه حماس صغير كلما ضغطها
+                let bb = n.getBoundingClientRect();
+                createSparks(window.innerWidth/2, bb.top + bb.height/2);
+
+                if(notifsOpen === 4) {
+                    setTimeout(() => { document.getElementById('btn-c4').classList.add('show-el'); blastConfetti(70); }, 700);
+                }
+            }
+        }
+
+        // --- رادار قياس الغلاوة العبيط והمميز ---
+        const btnRad = document.getElementById('radar-btn');
+        const barFll = document.getElementById('meter-fill');
+        const txtMc = document.getElementById('machine-text');
+        const mPhrases = [
+            "الحساسات تسجل زيادة مخيفة بالسكر والحلاوة.. 🚨",
+            "أوبس.. درجة العسالة في دمك واصلة 100% هدي شوي! 🔥",
+            "جاري التأكد.. ياربي هالبنت كلها براءة ودلال 🥺",
+            "النتيجــــــة ظهرررررت!!!!"
+        ];
+        
+        let md = 0, pVal = 0;
+        btnRad.addEventListener('click', () => {
+            if(pVal > 0) return;
+            btnRad.style.animation = 'none'; btnRad.style.transform = 'scale(0.85)';
+            
+            md = setInterval(()=> {
+                pVal += 1.5;
+                if(pVal>100) pVal=100;
+                barFll.style.width = pVal+'%';
+                
+                if(pVal >= 20 && pVal < 50) txtMc.innerText = mPhrases[0];
+                else if(pVal >= 50 && pVal < 75) txtMc.innerText = mPhrases[1];
+                else if(pVal >= 75 && pVal < 99) txtMc.innerText = mPhrases[2];
+                
+                if(pVal === 100) {
+                    clearInterval(md);
+                    txtMc.style.color = 'var(--pink-accent)';
+                    btnRad.style.transform = 'scale(1)'; btnRad.innerHTML = '💯';
+                    txtMc.innerText = "لأغلى إنسانة وأحن قلب.. مستوى الغلاوة عندك ما توصفه سطور، إنتي البركة والضحكة الحلوة في حياتنا، عساها سنة فرح وسعادة لروحك النقية!! 😂🤍🤍🤍";
+                    blastConfetti(200);
+                    setTimeout(()=>{ document.getElementById('btn-c5').classList.add('show-el'); }, 2000);
+                }
+            }, 60);
+        });
+
+        // --- آلة الكتابة الختامية الطويلة الراقية (TypeWriter) ---
+        const theGreatMsg = `يا حبيبـة قلب ابن أختك وأغلى ما أملك في هالدنيــا.. 🤍\n\nكل عام وأنتِ بستان ورد يفوح عطره على كل عايلتك، وكل سنة وأنتِ منورة حياتنا بصوتك وحنانك ووجودك اللي ما يتعوض أبداً.\nعساها سنة حلوة تشبه نقاء قلبك الأبيض، أسأل الله الواحد الأحد إنه يعطيك حتى يرضيك، ويريح بالك، ويزيح عنك كل ضيقة، ويحط بطريقك أطيب وأحسن خلقه..\n\nصدقيني لو بكتب من اليوم لبكرة ما راح أوفيك قدرك وغلاوتك. وجودك يعطينا أمان وسند وقوة.. أنتِ الكبيرة قدر، والغالية مقام، والتاج اللي نحطه على روسنا ونمشي فخورين فيه ✨\n\nربي لا يحرمني هالابتسامة الحلوة، ويديمك لنا دايماً وأبداً بصحة وسعادة وعافية تامة، ويبارك لك في عمرك وأيامك يا كل كلي وقطعة من روحي.. \nأخوكِ وابنكِ ومحبكِ وليوثتك المز 🤍`;
+        
+        let cId = 0, isTp = false;
+        function typeWriteFinal() {
+            if(isTp) return; isTp=true;
+            const dest = document.getElementById('final-script');
+            function typeChar() {
+                if(cId < theGreatMsg.length) {
+                    let letter = theGreatMsg.charAt(cId);
+                    if(letter === '\n') letter = '<br>';
+                    dest.innerHTML += letter; cId++;
+                    setTimeout(typeChar, 45); // سرعة كلاسيكية عاطفية
+                } else {
+                    document.getElementById('t-cursor').style.display='none';
+                    setTimeout(()=>{ blastConfetti(250); }, 1000);
+                }
+            }
+            typeChar();
+        }
+
+    </script>
+</body>
+</html>
